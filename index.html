@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Wedding in Kenya</title>
+  <meta name="description" content="Everything our guests need: things to do in Kenya, where to stay, getting ready, and shared photos." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Styles (separated from HTML) -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Shared header (top bar) is injected here by js/main.js -->
+  <div data-header></div>
+
+  <!-- =====================================================================
+       All sections are stacked on this one page. The top bar jumps to
+       each section (#home, #kenya, #stay, #services, #photos) and you can
+       also reach them by scrolling down.
+       ===================================================================== -->
+
+  <!-- ================= 1. HOME / HERO ================= -->
+  <section id="home" class="hero">
+    <div class="hero__inner">
+      <p class="eyebrow">We're getting married in Kenya</p>
+      <!-- TODO: add the names -->
+      <h1>Save the Date</h1>
+      <p class="hero__meta">15 January 2027 &middot; Nairobi, Kenya</p>
+
+      <!-- Countdown filled in by JS -->
+      <div class="countdown" data-countdown></div>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#kenya">Explore Kenya</a>
+        <a class="btn btn--light" href="#stay">Where to stay</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Welcome intro -->
+  <section class="section">
+    <div class="container section-head">
+      <span class="eyebrow">Karibu — Welcome</span>
+      <h2>We can't wait to celebrate with you</h2>
+      <p>
+        <!-- TODO: Add your welcome message / story here -->
+        Thank you for being part of our journey. Below you'll find everything you need
+        to plan your trip to Kenya — things to do, where to stay, help getting ready for
+        the big day, and a place to share your photos. Use the bar at the top to jump
+        around, or simply scroll.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= 2. EXPLORE KENYA ================= -->
+  <section id="kenya" class="section section--tint">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Your tour guide</span>
+        <h2>What to do in Kenya</h2>
+        <p>Make a holiday of it! Our favourite experiences — from the Big Five to the Indian Ocean coast — plus practical tips.</p>
+      </div>
+
+      <!-- Safaris -->
+      <h3 class="center">Safaris &amp; wildlife</h3>
+      <div class="grid grid--3 mt-2">
+        <div class="card">
+          <div class="card__media">🦁</div>
+          <div class="card__body">
+            <h3>Maasai Mara</h3>
+            <div class="card__meta">~5–6 hrs from Nairobi</div>
+            <a href="#">More →</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__media">🐘</div>
+          <div class="card__body">
+            <h3>Amboseli</h3>
+            <div class="card__meta">~4–5 hrs from Nairobi</div>
+            <a href="#">More →</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__media">🦒</div>
+          <div class="card__body">
+            <h3>Nairobi National Park</h3>
+            <div class="card__meta">In the city</div>
+            <a href="#">More →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nairobi -->
+      <h3 class="center" style="margin-top:3rem;">In Nairobi</h3>
+      <div class="grid grid--2 mt-2">
+        <div class="card"><div class="card__body">
+          <h3>🐘 Sheldrick Elephant Orphanage</h3>
+        </div></div>
+        <div class="card"><div class="card__body">
+          <h3>🦒 Giraffe Centre</h3>
+        </div></div>
+        <div class="card"><div class="card__body">
+          <h3>🍽️ Carnivore Restaurant</h3>
+        </div></div>
+        <div class="card"><div class="card__body">
+          <h3>🛍️ Maasai Markets</h3>
+        </div></div>
+      </div>
+
+      <!-- Coast -->
+      <h3 class="center" style="margin-top:3rem;">The coast &amp; beaches</h3>
+      <div class="feature mt-2">
+        <div class="feature__media">🏝️</div>
+        <div>
+          <h3>Diani Beach</h3>
+        </div>
+      </div>
+      <div class="feature feature--reverse mt-2">
+        <div class="feature__media">🏛️</div>
+        <div>
+          <h3>Mombasa &amp; Lamu</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3. STAY / ACCOMMODATION ================= -->
+  <section id="stay" class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Where to stay</span>
+        <h2>Accommodation</h2>
+      </div>
+
+      <!-- Featured: Bidwood -->
+      <div class="feature">
+        <div class="feature__media">🏨</div>
+        <div>
+          <h3>Bidwood Suites</h3>
+          <p><!-- TODO: description, address, why recommended -->
+            Modern serviced suites with all the essentials — a reliable, central base near the festivities.</p>
+          <ul class="info-list">
+            <li>Address / area: to be added</li>
+          </ul>
+          <!-- TODO: real booking link -->
+          <a class="btn btn--primary mt-2" href="#" target="_blank" rel="noopener">Visit / book Bidwood</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4. GET READY / SERVICES ================= -->
+  <section id="services" class="section section--tint">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">For our guests</span>
+        <h2>Getting ready</h2>
+        <p>Want a hand looking your best? We've lined up trusted makeup artists, hairstylists and Indian outfit hire — so you can travel light and still dazzle.</p>
+      </div>
+
+      <!-- Hair & makeup -->
+      <h3 class="center">Hair &amp; makeup</h3>
+      <div class="grid grid--3 mt-2">
+        <div class="card"><div class="card__body">
+          <div class="card__meta">Makeup artist</div>
+          <h3>Artist name</h3>
+          <p><!-- TODO -->Speciality and style notes to be added.</p>
+          <a href="#" target="_blank" rel="noopener">Contact / book →</a>
+        </div></div>
+        <div class="card"><div class="card__body">
+          <div class="card__meta">Hair stylist</div>
+          <h3>Stylist name</h3>
+          <p><!-- TODO -->Updos, blow-dries and traditional styling.</p>
+          <a href="#" target="_blank" rel="noopener">Contact / book →</a>
+        </div></div>
+        <div class="card"><div class="card__body">
+          <div class="card__meta">Mehndi / henna</div>
+          <h3>Henna artist</h3>
+          <p><!-- TODO -->Bridal and guest henna designs.</p>
+          <a href="#" target="_blank" rel="noopener">Contact / book →</a>
+        </div></div>
+      </div>
+
+      <!-- Outfit hire -->
+      <h3 class="center" style="margin-top:3rem;">Indian outfit hire</h3>
+      <p class="center" style="max-width:640px;margin:0 auto;color:var(--color-muted);">No need to buy or pack a full wardrobe — hire beautiful outfits for the ceremonies.</p>
+      <div class="feature mt-2">
+        <div class="feature__media">👗</div>
+        <div>
+          <h3>For her</h3>
+          <p><!-- TODO: hire partner + link -->Saris, lehengas, anarkalis and matching jewellery available to hire.</p>
+          <ul class="info-list">
+            <li>Outfits: saris, lehengas, salwar suits</li>
+            <li>Jewellery &amp; accessories add-ons</li>
+            <li>Fittings and returns: details to be added</li>
+          </ul>
+          <a class="btn btn--primary mt-2" href="#" target="_blank" rel="noopener">Browse outfits</a>
+        </div>
+      </div>
+      <div class="feature feature--reverse mt-2">
+        <div class="feature__media">🕴️</div>
+        <div>
+          <h3>For him</h3>
+          <p><!-- TODO: hire partner + link -->Sherwanis, kurtas, Nehru jackets and accessories to complete the look.</p>
+          <ul class="info-list">
+            <li>Outfits: sherwanis, kurta sets, Nehru jackets</li>
+            <li>Turbans / safas on request</li>
+            <li>Fittings and returns: details to be added</li>
+          </ul>
+          <a class="btn btn--primary mt-2" href="#" target="_blank" rel="noopener">Browse outfits</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5. PHOTOS ================= -->
+  <section id="photos" class="section">
+    <div class="container center">
+      <div class="section-head">
+        <span class="eyebrow">Memories</span>
+        <h2>Share your photos</h2>
+        <p>Help us capture every moment! Upload the photos and videos you take to our shared Google Drive — and browse everyone else's too.</p>
+      </div>
+
+      <!-- The href is set automatically from SITE.driveLink in js/main.js -->
+      <a class="btn btn--primary" data-drive-link href="https://drive.google.com/">
+        Open the shared Drive
+      </a>
+    </div>
+  </section>
+
+  <!-- Shared footer is injected here by js/main.js -->
+  <div data-footer></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
