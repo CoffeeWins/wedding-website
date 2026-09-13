@@ -85,16 +85,7 @@ img { max-width: 100%; display: block; }
 section[id] { scroll-margin-top: 72px; }
 
 .section-head { text-align: center; max-width: 720px; margin: 0 auto 2.5rem; }
-.section-head .eyebrow {
-  display: inline-block;
-  font-family: var(--font-body);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--color-primary);
-  margin-bottom: 0.6rem;
-}
+
 .section-head p { color: var(--color-muted); }
 
 .center { text-align: center; }
@@ -203,12 +194,6 @@ section[id] { scroll-margin-top: 72px; }
   background-position: center;
 }
 .hero__inner { max-width: 760px; }
-.hero .eyebrow {
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
 .hero h1 { color: #fff; margin: 0.3em 0; }
 .hero__meta {
   font-family: var(--font-display);
