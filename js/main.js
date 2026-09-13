@@ -9,7 +9,8 @@
 /* ---- SITE CONFIG (edit me!) ---------------------------------------- */
 const SITE = {
   coupleName: "Our Wedding",                 // TODO: add the names here
-  weddingDate: "2027-01-15T15:00:00+03:00",  // TODO: set real date/time (Kenya = UTC+3)
+  weddingDate: "2026-12-25T15:00:00+03:00",  // Single source of truth for date + countdown (Kenya = UTC+3)
+  timeZone: "Africa/Nairobi",                // used to display the date correctly
   location: "Nairobi, Kenya",
   // TODO: paste the shared Google Drive folder link here
   driveLink: "https://drive.google.com/",
@@ -96,6 +97,21 @@ function initScrollSpy() {
   sections.forEach((sec) => observer.observe(sec));
 }
 
+/* ---- EVENT META (date + location, driven by SITE data) ------------ */
+function renderEventMeta() {
+  const el = document.querySelector("[data-event-meta]");
+  if (!el) return;
+
+  const formattedDate = new Date(SITE.weddingDate).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: SITE.timeZone,
+  });
+
+  el.textContent = `${formattedDate} \u00B7 ${SITE.location}`;
+}
+
 /* ---- COUNTDOWN ---------------------------------------------------- */
 function initCountdown() {
   const el = document.querySelector("[data-countdown]");
@@ -152,6 +168,7 @@ function wireDriveLinks() {
 document.addEventListener("DOMContentLoaded", () => {
   renderHeader();
   renderFooter();
+  renderEventMeta();
   initScrollSpy();
   initCountdown();
   wireDriveLinks();
