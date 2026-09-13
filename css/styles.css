@@ -266,18 +266,24 @@ section[id] { scroll-margin-top: 72px; }
 }
 .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 .card__media {
+  position: relative;          /* anchor for the absolutely-positioned image */
   height: 170px;
+  flex: 0 0 170px;             /* Safari: keep the media box fixed, never grow/shrink */
   display: grid;
   place-items: center;
   font-size: 3rem;
   background: linear-gradient(135deg, #f0e4d2, #e7d3b5);
   overflow: hidden;
 }
-/* Photo inside a card media area (e.g. hotels) */
+/* Photo inside a card media area (e.g. hotels) — absolute so height:100%
+   resolves against the fixed media box and is clipped (fixes Safari overlap). */
 .card__media img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 .card__body { padding: 1.3rem 1.4rem 1.5rem; flex: 1; }
 .card__body h3 { margin-bottom: 0.4rem; }
