@@ -14,6 +14,17 @@
     10. Responsive tweaks
    ===================================================================== */
 
+/* 0. FONTS ----------------------------------------------------------- */
+/* Vintage Melinda — vintage script display font (Keithzo, personal use).
+   Self-hosted so it works offline and without a runtime CDN. */
+@font-face {
+  font-family: "Vintage Melinda";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/VintageMelinda-Regular.otf") format("opentype");
+}
+
 /* 1. DESIGN TOKENS ---------------------------------------------------- */
 :root {
   /* Colours — warm, earthy safari + Indian wedding palette */
@@ -28,7 +39,8 @@
   --color-line:      #e7ddd0;
 
   /* Typography */
-  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-title:   "Vintage Melinda", "Cormorant Garamond", Georgia, serif; /* main titles only */
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;  /* sub-headings & brand */
   --font-body:    "Montserrat", "Segoe UI", system-ui, sans-serif;
 
   /* Spacing / sizing */
@@ -52,16 +64,27 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.15;
+/* Main titles — script display font */
+h1, h2 {
+  font-family: var(--font-title);
+  font-weight: 400;
+  line-height: 1.2;
   margin: 0 0 0.4em;
 }
 
-h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); }
-h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); }
+h1 { font-size: clamp(3.4rem, 9vw, 6.5rem); }
+h2 { font-size: clamp(2.6rem, 6vw, 4.4rem); }
+
+/* Sub-headings — previous elegant serif */
+h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 0.4em;
+}
+
 h3 { font-size: 1.4rem; }
+h4 { font-size: 1.2rem; }
 
 p { margin: 0 0 1em; }
 
