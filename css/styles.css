@@ -70,6 +70,7 @@ h1, h2 {
   font-weight: 400;
   line-height: 1.2;
   margin: 0 0 0.4em;
+  user-select: none;
 }
 
 h1 { font-size: clamp(3.4rem, 9vw, 6.5rem); }
@@ -112,6 +113,7 @@ section[id] { scroll-margin-top: 72px; }
 .section-head p { color: var(--color-muted); }
 
 .center { text-align: center; }
+h3.center { user-select: none; }
 .mt-2 { margin-top: 2rem; }
 
 /* 4. HEADER / NAVIGATION -------------------------------------------- */
@@ -325,9 +327,25 @@ section[id] { scroll-margin-top: 72px; }
   display: flex;
   flex-direction: column;
 }
-.card__body h3 { margin-bottom: 0.4rem; }
+.card__body h3 {
+  margin-bottom: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
 .card__body p { color: var(--color-muted); font-size: 1.05rem; }
-.card__meta { font-size: 1.05rem; color: var(--color-primary); font-weight: 600; margin-bottom: 0.5rem; }
+.card__meta {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.card__body > a:not(.btn) { margin-top: auto; }
 
 /* Feature row (image + text alternating) */
 .feature {
