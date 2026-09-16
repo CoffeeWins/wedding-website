@@ -394,6 +394,103 @@ h3.center { user-select: none; }
   font-size: 0.92rem;
 }
 
+/* 8. PHOTOS SCENE --------------------------------------------------- */
+.photos {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 48%, #fff8ee 0%, var(--color-bg) 72%);
+}
+.photos__scene {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.photos__scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 48% 42% at 50% 50%,
+    rgba(251, 247, 241, 0.94) 0%,
+    rgba(251, 247, 241, 0.55) 55%,
+    rgba(251, 247, 241, 0.12) 100%
+  );
+}
+.photos__folder {
+  position: absolute;
+  width: min(280px, 32vw);
+  opacity: 0.9;
+  filter: drop-shadow(0 16px 28px rgba(45, 38, 32, 0.18));
+}
+.photos__folder--left {
+  left: -2%;
+  bottom: 4%;
+  transform: rotate(-8deg);
+}
+.photos__folder--right {
+  right: -2%;
+  bottom: 6%;
+  transform: scaleX(-1) rotate(-6deg);
+}
+.photos__shot {
+  position: absolute;
+  margin: 0;
+  width: 150px;
+  padding: 0.45rem 0.45rem 1.55rem;
+  background: #fffef8;
+  border-radius: 3px;
+  box-shadow: var(--shadow-lg);
+  transform: rotate(var(--rot, 0deg));
+  animation: photos-drift var(--dur, 7s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+.photos__shot::after {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  width: 46px;
+  height: 14px;
+  border-radius: 2px;
+  background: rgba(201, 162, 39, 0.42);
+  transform: translateX(-50%) rotate(-3deg);
+}
+.photos__shot img {
+  width: 100%;
+  height: 112px;
+  object-fit: cover;
+  display: block;
+}
+.photos__shot--1 { left: 5%;  bottom: 26%; --rot: -16deg; --dur: 7.2s; --delay: 0s; width: 168px; }
+.photos__shot--2 { left: 14%; top: 16%;    --rot: 9deg;   --dur: 8s;   --delay: 0.6s; }
+.photos__shot--3 { left: 22%; bottom: 12%; --rot: 5deg;   --dur: 6.6s; --delay: 1.1s; width: 132px; }
+.photos__shot--4 { right: 5%;  bottom: 24%; --rot: 14deg;  --dur: 7.6s; --delay: 0.3s; width: 168px; }
+.photos__shot--5 { right: 13%; top: 14%;   --rot: -10deg; --dur: 8.2s; --delay: 0.9s; }
+.photos__shot--6 { right: 22%; bottom: 10%; --rot: -4deg; --dur: 6.8s; --delay: 1.4s; width: 132px; }
+
+@keyframes photos-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--rot, 0deg)); }
+  50% { transform: translate3d(6px, -12px, 0) rotate(calc(var(--rot, 0deg) + 2deg)); }
+}
+
+.photos__content { position: relative; z-index: 1; }
+.photos__panel {
+  max-width: 36rem;
+  margin-inline: auto;
+  padding: 2.4rem 1.6rem 2.2rem;
+  background: transparent;
+  border-radius: var(--radius);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.photos__panel .section-head { margin-bottom: 1.6rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .photos__shot { animation: none; }
+}
+
 /* 9. FOOTER --------------------------------------------------------- */
 .site-footer {
   background: var(--color-ink);
@@ -421,9 +518,28 @@ h3.center { user-select: none; }
   /* Nav links stay visible and wrap on smaller screens */
   .nav { flex-wrap: wrap; }
   .nav__links { gap: 1rem 1.2rem; }
+
+  .photos__folder { width: min(200px, 38vw); opacity: 0.75; }
+  .photos__shot { width: 120px; }
+  .photos__shot img { height: 90px; }
+  .photos__shot--1 { left: 10%; bottom: 22%; width: 132px; }
+  .photos__shot--2 { left: 12%; top: 18%; }
+  .photos__shot--3 { left: 28%; bottom: 14%; width: 110px; }
+  .photos__shot--4 { right: 10%; bottom: 22%; width: 132px; }
+  .photos__shot--5 { right: 12%; top: 18%; }
+  .photos__shot--6 { right: 28%; bottom: 14%; width: 110px; }
 }
 
 @media (max-width: 540px) {
   .grid--2, .grid--3 { grid-template-columns: 1fr; }
   .countdown { flex-wrap: wrap; gap: 0.8rem; }
+
+  .photos__shot { width: 96px; padding-bottom: 1.15rem; }
+  .photos__shot img { height: 72px; }
+  .photos__shot--1 { left: 12%; bottom: 20%; width: 108px; }
+  .photos__shot--2 { left: 14%; top: 16%;    width: 96px; }
+  .photos__shot--3 { left: 32%; bottom: 12%; width: 90px; }
+  .photos__shot--4 { right: 12%; bottom: 20%; width: 108px; }
+  .photos__shot--5 { right: 14%; top: 16%;   width: 96px; }
+  .photos__shot--6 { right: 32%; bottom: 12%; width: 90px; }
 }
