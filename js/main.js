@@ -41,6 +41,26 @@ function renderHeader() {
         <ul class="nav__links" id="navLinks">${links}</ul>
       </div>
     </header>`;
+
+  syncHeaderHeight();
+}
+
+function syncHeaderHeight() {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+  const apply = () => {
+    const h = Math.round(header.getBoundingClientRect().height);
+    document.documentElement.style.setProperty("--header-h", `${h}px`);
+  };
+  apply();
+  if (typeof ResizeObserver === "undefined") {
+    window.addEventListener("resize", apply);
+    return;
+  }
+  if (!syncHeaderHeight.observer) {
+    syncHeaderHeight.observer = new ResizeObserver(apply);
+  }
+  syncHeaderHeight.observer.observe(header);
 }
 
 /* ---- RENDER FOOTER ------------------------------------------------- */
