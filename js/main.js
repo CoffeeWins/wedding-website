@@ -95,6 +95,9 @@ function initScrollSpy() {
     .map((a) => document.querySelector(a.getAttribute("href")))
     .filter(Boolean);
 
+  let jumpLock = false;
+  let idleTimer;
+
   const setActive = (id) => {
     navLinks.forEach((a) => {
       if (a.getAttribute("href") === `#${id}`) {
@@ -107,12 +110,39 @@ function initScrollSpy() {
 
   const observer = new IntersectionObserver(
     (entries) => {
+      if (jumpLock) return;
       entries.forEach((entry) => {
         if (entry.isIntersecting) setActive(entry.target.id);
       });
     },
     { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
   );
+
+  const endJump = () => {
+    jumpLock = false;
+  };
+
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = (a.getAttribute("href") || "").slice(1);
+    if (!id || !document.getElementById(id)) return;
+    jumpLock = true;
+    setActive(id);
+    clearTimeout(idleTimer);
+  });
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!jumpLock) return;
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(endJump, 150);
+    },
+    { passive: true }
+  );
+
+  window.addEventListener("scrollend", endJump);
 
   sections.forEach((sec) => observer.observe(sec));
 }
