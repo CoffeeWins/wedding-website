@@ -478,14 +478,23 @@ h3.center { user-select: none; }
 
 .photos__content { position: relative; z-index: 1; }
 .photos__panel {
+  position: relative;
   max-width: 36rem;
   margin-inline: auto;
   padding: 2.4rem 1.6rem 2.2rem;
   background: transparent;
-  border-radius: var(--radius);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
 }
+.photos__panel::before {
+  content: "";
+  position: absolute;
+  inset: -18% -12%;
+  pointer-events: none;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  mask-image: radial-gradient(ellipse 68% 62% at 50% 50%, #000 0%, #000 36%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 68% 62% at 50% 50%, #000 0%, #000 36%, transparent 72%);
+}
+.photos__panel > * { position: relative; z-index: 1; }
 .photos__panel .section-head { margin-bottom: 1.6rem; }
 
 @media (prefers-reduced-motion: reduce) {
